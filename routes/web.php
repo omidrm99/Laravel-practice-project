@@ -14,7 +14,8 @@ Route::get('/', function () {
             $document->title,
             $document->excerpt,
             $document->date,
-            $document->body()
+            $document->body(),
+            $document->slug
         );
     }
     return view('posts', [
