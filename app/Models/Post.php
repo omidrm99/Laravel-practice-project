@@ -14,8 +14,7 @@ class Post
         if (!file_exists($path)) {
             throw new ModelNotFoundException();
         }
-        return cache()->remember("posts.{$slug}", 5,
-            fn() => file_get_contents($path));
+        return cache()->remember("posts.{$slug}", 5, fn() => file_get_contents($path));
     }
 
     public static function all()
