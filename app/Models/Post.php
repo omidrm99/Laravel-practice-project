@@ -26,7 +26,7 @@ class Post
 
     public static function all()
     {
-        return cache()->rememberForever('posts.all',function (){
+        $cache =  cache()->rememberForever('posts.all',function (){
             return collect(File::files(resource_path("posts")))
                 ->map(fn($file) => YamlFrontMatter::parseFile($file))
                 ->map(fn($document) => new Post(
@@ -37,7 +37,7 @@ class Post
                     $document->slug
                 ))->sortBy('date');
         });
-
+    return $cache;
     }
 
     public static function find($slug)
