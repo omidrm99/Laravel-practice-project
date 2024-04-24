@@ -12,14 +12,14 @@
 
 <article>
     <h1>
-        <?= $post->title; ?>
+        {{ $post->title; }}
     </h1>
 
     <div>
         <p>
-            <?= $post->body; ?>
+            {!! $post->body; !!}
         </p>
     </div>
-<a href="/">Go Back</a>
+    <a href="/">Go Back</a>
 </body>
 </html>
